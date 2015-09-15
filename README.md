@@ -9,3 +9,11 @@ This is a simple example of how to use HL7 context aware infobuttons. For more i
 
 ### LITE (lite.bmi.utah.edu)
 An open-access tool that allows users of OpenInfobutton to create knowledge resource profiles by specifying the clinical contexts in which they would like OpenInfobutton to provide links to those resources
+
+### Javascript Libraries
+* Backbonejs - http://backbonejs.org/
+* Underscorejs - http://underscorejs.org/
+* jQuery - https://jquery.com/
+
+### CSS
+* Bootstrap - http://getbootstrap.com/ (actually has CSS and Javascript functionality)
