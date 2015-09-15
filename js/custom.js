@@ -45,10 +45,9 @@ test.fetch({
 $(function(){
   $(".infobutton").click(function(){
     $("#infoModal").modal('show');
-    var feed = test.get("feed");
-    console.log("feed: ", feed[0].entry[0].summary.value);
     var summary = test.get("feed")[0].entry[0].summary.value;
-    console.log("summary: ", summary);
+    var link = test.get("feed")[0].entry[0].link[0].href;
     $(".modal-content").html(summary);
+    $(".modal-content").append("<p>For more information go to <a href=" + link + " target='_blank'>" + link + "<\a>");
   });
 })
