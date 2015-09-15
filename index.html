@@ -16,14 +16,25 @@
     <!-- the custom syle sheet -->
     <link rel="stylesheet" href="css/custom.css">
   </head>
+  
+  <div id="infoModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      
+    </div>
+  </div>
+</div>
+
   <body>
-    <h1>Hello</h1>
+    <h1>Local Area Regional EHR</h1>
     
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
-          <p class="lead">Patrick Smith</p>
+        <div class="col-md-6 border">
+          <h3>Patient Information</h3>
           <dl class="dl-horizontal">
+            <dt>Name</dt>
+            <dd>Patrick Smith</dd>
             <dt>Age</dt>
             <dd>57</dd>
             <dt>Sex</dt>
@@ -31,22 +42,85 @@
             <dt>Address</dt>
             <dd>123 Place Lane, USA</dd>
           </dl>
+          <button class="btn btn-default pull-right">Modify</button>
         </div>
-        <div class="col-md-6">
-          <p class="lead">Reason for current visit</p>
+        <div class="col-md-6 border">
+          <h3>Reason for current visit</h3>
           <p>Patient was admitted to Local Area Regional Hospital on Sept 1, 2015 due to severe bacterial pneumonia...</p>
+          <button class="btn btn-default pull-right">Modify</button>
         </div>
       </div>
     </div>
 
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Problem List</h3>
+        </div>
+        <div class="col-md-6">
+          <h3>Medications</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <span>Hypertensive disorder
+            <div class="infobutton pull-right">
+              <em>i</em>
+            </div>
+          </span>
+        </div>
+        <div class="col-md-6">
+          <p>Linsinoril</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p>Persistent Migrane</p>
+        </div>
+        <div class="col-md-6">
+          <p>Fioricet</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p>High Cholesterol</p>
+        </div>
+        <div class="col-md-6">
+          <p>Zocor</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <button class="btn btn-default pull-right">Modify</button>
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-default pull-right">Modify</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Lab Results</h3>
+          <button class="btn btn-default pull-right">Modify</button>
+        </div>
+        <div class="col-md-6">
+          <h3>Allergies</h3>
+          <button class="btn btn-default pull-right">Modify</button>
+        </div>
+      </div>
+    </div>
+
+
     <!-- load various javacript libraries last -->
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Latest compiled and minified JavaScript external libraries-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    
-    <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+    <script src="external/underscore_1_8_3/underscore-min.js"></script>
+    <script src="external/backbone_1_2_3/backbone-min.js"></script>
+    
     <!-- the custom javascript -->
     <script src="js/custom.js"></script>
   </body>

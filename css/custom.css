@@ -1,5 +1,19 @@
-.col-md-6 {
-  border-color: #ddd;
-  border-width: 1px;
-  border-radius: 4px;  
+.dl-horizontal dt {
+  width: 100px;
+}
+.dl-horizontal dd {
+  margin-left: 120px;
+}
+.infobutton {
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  line-height: 1rem;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  padding: 6px;
+  background: #337ab7;
+  border: 2px solid #2e6da4;
+  color: #FFF;
+  text-align: center;
 }
