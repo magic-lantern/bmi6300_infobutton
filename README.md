@@ -17,3 +17,15 @@ An open-access tool that allows users of OpenInfobutton to create knowledge reso
 
 ### CSS
 * Bootstrap - http://getbootstrap.com/ (actually has CSS and Javascript functionality)
+
+## To Do
+* Determine proper medications for problems
+* Get codes for medications
+* Get infobutton URL for medications
+* Determine a couple of lab results related to problems
+* Get codes for lab results
+* Get infobutton URL for lab results
+* Put in a couple of allergies
+* ? Should I use a collection for data?
+* Create view for model to display relevant information: URL, Summary, other details
+* Fix modal to have close button, better styling
