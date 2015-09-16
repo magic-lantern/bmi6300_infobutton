@@ -1,8 +1,20 @@
-var REST_SERVICE_ROOT_URL = "http://service.oib.utah.edu:8080/infobutton-service/infoRequest?representedOrganization.id.root=http://axeium.net&xsltTransform=Infobutton_UI_AXEIUM&taskContext.c.c=PROBLISTREV&mainSearchCriteria.v.c=38341003&mainSearchCriteria.v.cs=2.16.840.1.113883.6.96&knowledgeResponseType=application/json"
+var REST_SERVICE_ROOT_URL = "http://service.oib.utah.edu:8080/infobutton-service/infoRequest?representedOrganization.id.root=http://axeium.net&xsltTransform=Infobutton_UI_AXEIUM&taskContext.c.c=PROBLISTREV&mainSearchCriteria.v.cs=2.16.840.1.113883.6.96&encounter.c.c=AMB&informationRecipient=PROV&informationRecipient.languageCode.c=en&informationRecipient.healthCareProvider.c.c=200000000X&performer=PROV&performer.languageCode.c=en&performer.healthCareProvider.c.c=200000000X&knowledgeResponseType=application/json";
+/*
+problems:
+  Hypertensive disorder - 38341003
+  Transformed migraine - 427419006
+  Hypercholesterolemia - 13644009
+sample of problem URLs
+  http://service.oib.utah.edu:8080/infobutton-service/infoRequest?representedOrganization.id.root=http://axeium.net&xsltTransform=Infobutton_UI_AXEIUM&taskContext.c.c=PROBLISTREV&mainSearchCriteria.v.c=38341003&mainSearchCriteria.v.cs=2.16.840.1.113883.6.96&mainSearchCriteria.v.dn=Hypertensive disorder&encounter.c.c=AMB&informationRecipient=PROV&informationRecipient.languageCode.c=en&informationRecipient.healthCareProvider.c.c=200000000X&performer=PROV&performer.languageCode.c=en&performer.healthCareProvider.c.c=200000000X&knowledgeResponseType=application/json"
+  http://service.oib.utah.edu:8080/infobutton-service/infoRequest?representedOrganization.id.root=http://axeium.net&xsltTransform=Infobutton_UI_AXEIUM&taskContext.c.c=PROBLISTREV&mainSearchCriteria.v.c=427419006&mainSearchCriteria.v.cs=2.16.840.1.113883.6.96&mainSearchCriteria.v.dn=Transformed migraine&encounter.c.c=AMB&informationRecipient=PROV&informationRecipient.languageCode.c=en&informationRecipient.healthCareProvider.c.c=200000000X&performer=PROV&performer.languageCode.c=en&performer.healthCareProvider.c.c=200000000X&knowledgeResponseType=application/json
+  http://service.oib.utah.edu:8080/infobutton-service/infoRequest?representedOrganization.id.root=http://axeium.net&xsltTransform=Infobutton_UI_AXEIUM&taskContext.c.c=PROBLISTREV&mainSearchCriteria.v.c=13644009&mainSearchCriteria.v.cs=2.16.840.1.113883.6.96&mainSearchCriteria.v.dn=Hypercholesterolemia&encounter.c.c=AMB&informationRecipient=PROV&informationRecipient.languageCode.c=en&informationRecipient.healthCareProvider.c.c=200000000X&performer=PROV&performer.languageCode.c=en&performer.healthCareProvider.c.c=200000000X&knowledgeResponseType=application/json
+*/
 $.ajaxSetup({timeout:4000});
 
 var infoButtonModel = Backbone.Model.extend({
   defaults: {
+    'mainSearchCriteria.v.c' : '',
+    'mainSearchCriteria.v.dn' : ''
   },
   validate: function(attributes){
     // add this later
@@ -11,28 +23,21 @@ var infoButtonModel = Backbone.Model.extend({
     // nothing needed for now
   },
   urlRoot: REST_SERVICE_ROOT_URL,
-  sync: function(method, model, options) {
-    // for now only override the read and create URLs
-    switch(method) {
-        case 'read':
-          options.url = model.urlRoot;
-          break;
-        default:
-          console.log("sync method - infoButtonModel model non read ", method);
-          return;
-    }
-    return Backbone.sync(method, model, options);
+  url : function() {
+    return  this.urlRoot + "&mainSearchCriteria.v.c=" + this.attributes['mainSearchCriteria.v.c'] + 
+      "&mainSearchCriteria.v.dn=" + this.attributes['mainSearchCriteria.v.dn'];
   },
   parse: function(response) {
     // map server response to expected object attributes
-    console.log("infoButtonModell - server JSON response ", response);
+    console.log("infoButtonModel - server JSON response ", response);
     //response.id = 1;
     return response;
   }
 });
 
 var test = new infoButtonModel();
-
+test.set("mainSearchCriteria.v.c", 38341003);
+test.set("mainSearchCriteria.v.dn", 'Hypertensive disorder');
 test.fetch({
   success: function(model, response, options){
     console.log("Retrieved infobutton information: ", response);

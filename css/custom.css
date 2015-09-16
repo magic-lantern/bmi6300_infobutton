@@ -17,3 +17,8 @@
   color: #FFF;
   text-align: center;
 }
+.headerbutton {
+  position: absolute;
+  right: 3vw;    
+  top: 3vh;
+}

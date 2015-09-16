@@ -16,18 +16,36 @@
     <!-- the custom syle sheet -->
     <link rel="stylesheet" href="css/custom.css">
   </head>
-  
-  <div id="infoModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      
-    </div>
-  </div>
-</div>
-
   <body>
-    <h1>Local Area Regional EHR</h1>
+
+    <div id="infoModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        </div>
+      </div>
+    </div>
     
+    <div id="aboutModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">About ths infobutton sample</h4>
+          </div>
+          <div class="modal-body">
+            <p>Infobutton demonstration by Seth Russell</p>
+            <p>All person related content in this sample application is fictious; no real personally identifiable information no personal health information has been used.</p>
+            <p>Results of info button links are provided by http://lite.bmi.utah.edu/InfobuttonQA.html</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    
+    <h1>Local Area Regional EHR</h1>
+    <button class="btn btn-info btn-sm headerbutton" data-toggle="modal" data-target="#aboutModal">About this page</button>
     <div class="container">
       <div class="row">
         <div class="col-md-6 border">
@@ -42,11 +60,20 @@
             <dt>Address</dt>
             <dd>123 Place Lane, USA</dd>
           </dl>
-          <button class="btn btn-default pull-right">Modify</button>
         </div>
         <div class="col-md-6 border">
           <h3>Reason for current visit</h3>
-          <p>Patient was admitted to Local Area Regional Hospital on Sept 1, 2015 due to severe bacterial pneumonia...</p>
+          <p>Followup for pneumonia.</p>
+          <p class="lead">Recent Patient Notes</p>
+          <p><strong>Sept 1, 2015</strong> - Pat was admitted to Local Area Regional Hospital due to severe bacterial pneumonia. Due to complications with pneumonia and health conditions...</p>
+          <p><strong>Aug 1, 2015</strong> - Pat visited due to increasingly severe migraines. Prescribed additional medication to help alleviate pain</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5 border">
+          <button class="btn btn-default pull-right">Modify</button>
+        </div>
+        <div class="col-md-6 border">
           <button class="btn btn-default pull-right">Modify</button>
         </div>
       </div>
@@ -54,43 +81,59 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5">
           <h3>Problem List</h3>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5">
           <h3>Medications</h3>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5">
           <span>Hypertensive disorder
             <div class="infobutton pull-right">
               <em>i</em>
             </div>
           </span>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5">
           <p>Linsinoril</p>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6">
-          <p>Persistent Migrane</p>
+        <div class="col-md-1">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
+          <p>Chronic Migraine</p>
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5">
           <p>Fioricet</p>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5">
           <p>High Cholesterol</p>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5">
           <p>Zocor</p>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-5">
           <button class="btn btn-default pull-right">Modify</button>
         </div>
         <div class="col-md-6">
@@ -101,12 +144,22 @@
     
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5">
           <h3>Lab Results</h3>
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5">
+          <h3>Allergies</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
           <button class="btn btn-default pull-right">Modify</button>
         </div>
         <div class="col-md-6">
-          <h3>Allergies</h3>
           <button class="btn btn-default pull-right">Modify</button>
         </div>
       </div>
