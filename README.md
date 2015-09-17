@@ -25,9 +25,9 @@ An open-access tool that allows users of OpenInfobutton to create knowledge reso
     * View for Problems
     * View for Medications
     * View for Lab Results
-* Fix modal to have close button, better styling
 * Infobutton icon shouldn't show up until JSON content has loaded
 * Show "loading content" at top of page while content is loading
+* Fix background color for multi-medication per problem list row - doesn't work on screens smaller than 1280 wide
 
 ## License
 
