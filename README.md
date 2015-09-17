@@ -19,13 +19,16 @@ An open-access tool that allows users of OpenInfobutton to create knowledge reso
 * Bootstrap - http://getbootstrap.com/ (actually has CSS and Javascript functionality)
 
 ## To Do
-* Determine proper medications for problems
-* Get codes for medications
-* Get infobutton URL for medications
-* Determine a couple of lab results related to problems
-* Get codes for lab results
-* Get infobutton URL for lab results
-* Put in a couple of allergies
 * ? Should I use a collection for data?
+* Verify current model will work for problems, medications, lab results
 * Create view for model to display relevant information: URL, Summary, other details
+    * View for Problems
+    * View for Medications
+    * View for Lab Results
 * Fix modal to have close button, better styling
+* Infobutton icon shouldn't show up until JSON content has loaded
+* Show "loading content" at top of page while content is loading
+
+## License
+
+See the [LICENSE](LICENSE.md) file for license rights and limitations (Apache License, Version 2.0).

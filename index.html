@@ -36,6 +36,9 @@
             <p>Infobutton demonstration by Seth Russell</p>
             <p>All person related content in this sample application is fictious; no real personally identifiable information no personal health information has been used.</p>
             <p>Results of info button links are provided by http://lite.bmi.utah.edu/InfobuttonQA.html</p>
+            <p>Application is designed to be viewed on a screen resolution of 1280x1024 or larger.</p>
+            <p>Source code available at <a href="https://github.com/magic-lantern/bmi6300_infobutton">https://github.com/magic-lantern/bmi6300_infobutton</a></p>
+            <p>Copyright 2015 Seth Russell, Licensed under Apache License, Version 2.0. See above source code for full details.</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -59,6 +62,15 @@
             <dd>Male</dd>
             <dt>Address</dt>
             <dd>123 Place Lane, USA</dd>
+          </dl>
+          <p class="lead">Recent Vitals</p>
+          <dl class="dl-horizontal">
+            <dt>Weight</dt>
+            <dd>81.64 kg <span>Today</span></dd>
+            <dt>Blood Pressure</dt>
+            <dd>130/80 mmHg <span>Today</span></dd>
+            <dt>Heart Rate</dt>
+            <dd>85 bpm <span>Today</span></dd>
           </dl>
         </div>
         <div class="col-md-6 border">
@@ -95,54 +107,87 @@
       <div class="row">
         <div class="col-md-1">
         </div>
-        <div class="col-md-5">
+        <div class="col-md-5 bg-infolight-a">
           <span>Hypertensive disorder
             <div class="infobutton pull-right">
               <em>i</em>
             </div>
           </span>
         </div>
+        <div class="col-md-1 bg-infolight-a">
+          <p>&nbsp;</p>
+        </div>
+        <div class="col-md-5 bg-infolight-a">
+          <p><strong>Lisinopril</strong> 40 MG Oral Tablet</p>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-md-1">
         </div>
-        <div class="col-md-5">
-          <p>Linsinoril</p>
+        <div class="col-md-5 bg-infolight-a">
+          <p>&nbsp;</p>
+        </div>
+        <div class="col-md-1 bg-infolight-a">
+          <p>&nbsp;</p>
+        </div>
+        <div class="col-md-5 bg-infolight-a">
+          <p><strong>Diltiazem Hydrochloride</strong> 180 MG Extended Release Oral Tablet</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5 bg-infolight-b">
+          <p>Transformed migraine</p>
+        </div>
+        <div class="col-md-1 bg-infolight-b">
+          <p>&nbsp;</p>
+        </div>
+        <div class="col-md-5 bg-infolight-b">
+          <p><strong>Divalproex</strong> Sodium 300 MG</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5 bg-infolight-a">
+          <p>Hypercholesterolemia</p>
+        </div>
+        <div class="col-md-1 bg-infolight-a">
+          <p>&nbsp;</p>
+        </div>
+        <div class="col-md-5 bg-infolight-a">
+          <p><strong>Simvastatin</strong> 40 MG [Zocor]</p>
         </div>
       </div>
       <div class="row">
         <div class="col-md-1">
         </div>
         <div class="col-md-5">
-          <p>Chronic Migraine</p>
-        </div>
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-5">
-          <p>Fioricet</p>
+          <p class="lead">Non-Chronic</p>
         </div>
       </div>
       <div class="row">
         <div class="col-md-1">
         </div>
-        <div class="col-md-5">
-          <p>High Cholesterol</p>
+        <div class="col-md-5 bg-infolight-b">
+          <p>Bacterial pneumonia</p>
         </div>
-        <div class="col-md-1">
+        <div class="col-md-1 bg-infolight-b">
+          <p>&nbsp;</p>
         </div>
-        <div class="col-md-5">
-          <p>Zocor</p>
+        <div class="col-md-5 bg-infolight-b">
+          <p><strong>Levofloxacin</strong> 500 MG Oral Tablet</p>
         </div>
       </div>
       <div class="row">
         <div class="col-md-5">
-          <button class="btn btn-default pull-right">Modify</button>
+          <button class="btn btn-default pull-right topspacing">Modify</button>
         </div>
         <div class="col-md-6">
-          <button class="btn btn-default pull-right">Modify</button>
+          <button class="btn btn-default pull-right topspacing">Modify</button>
         </div>
       </div>
-    </div>
-    
-    <div class="container">
       <div class="row">
         <div class="col-md-1">
         </div>
@@ -156,8 +201,21 @@
         </div>
       </div>
       <div class="row">
+        <div class="col-md-1">
+        </div>
         <div class="col-md-5">
-          <button class="btn btn-default pull-right">Modify</button>
+          <p><strong>Triglycerides, Serum or Plasma</strong> 72 <span>Aug 12, 2015</span></p>
+          <p><strong>Stat Gram Stain</strong> +1 - click review for more details <span>Yesterday</span></p>
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5">
+          <p><strong>Penicillin</strong> Severe; anaphylactic reaction </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <button class="btn btn-default pull-right">Review</button>
         </div>
         <div class="col-md-6">
           <button class="btn btn-default pull-right">Modify</button>

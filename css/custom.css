@@ -1,5 +1,5 @@
 .dl-horizontal dt {
-  width: 100px;
+  width: 110px;
 }
 .dl-horizontal dd {
   margin-left: 120px;
@@ -21,4 +21,29 @@
   position: absolute;
   right: 3vw;    
   top: 3vh;
+}
+span {
+  display: block;
+  margin-bottom: 10px;
+}
+.bg-infolight-a {
+  background-color: #eef7fb;
+}
+.bg-infolight-b {
+  background-color: #fbf2ee;
+}
+.topspacing {
+  margin-top: 1rem;
+}
+dd > span, .col-md-5 > p > span {
+  color: #AAA;
+  display: inline;
+  margin-bottom: 0;
+
+}
+.lead {
+  margin-bottom: 10px;
+}
+.test {
+  margin-left: 7.2%;
 }
