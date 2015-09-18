@@ -16,17 +16,13 @@ An open-access tool that allows users of OpenInfobutton to create knowledge reso
 * jQuery - https://jquery.com/
 
 ### CSS
-* Bootstrap - http://getbootstrap.com/ (actually has CSS and Javascript functionality)
+* Bootstrap - http://getbootstrap.com/ (CSS and some UI Javascript functionality)
 
 ## To Do
-* ? Should I use a collection for data?
-* Verify current model will work for problems, medications, lab results
-* Create view for model to display relevant information: URL, Summary, other details
-    * View for Problems
-    * View for Medications
-    * View for Lab Results
-* Infobutton icon shouldn't show up until JSON content has loaded
-* Show "loading content" at top of page while content is loading
+* Test in IE, Firefox, Safari
+* Push to publically accessible URL
+* Web service does return JSON response for medications. Need to use XML response type if want medication information.
+* Create medication view for model to display relevant information: URL, Summary, other details
 * Fix background color for multi-medication per problem list row - doesn't work on screens smaller than 1280 wide
 
 ## License

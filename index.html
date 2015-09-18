@@ -45,7 +45,7 @@
     <h1>Local Area Regional EHR</h1>
     <div class="alert alert-info alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <strong>Notice </strong>- retrieving infobutton content.
+      <strong>Please Wait </strong>- retrieving infobutton content.
     </div>
     <div class="alert alert-warning alert-dismissible hidden" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -219,8 +219,10 @@
         <div class="col-md-1">
         </div>
         <div class="col-md-5">
-          <p><strong>Triglycerides, Serum or Plasma</strong> 72 <span>Aug 12, 2015</span></p>
-          <p><strong>Stat Gram Stain</strong> +1 - click review for more details <span>Yesterday</span></p>
+          <strong>Triglycerides, Serum or Plasma</strong> 72 <span class="faded">Aug 12, 2015</span>
+          <div class="labbutton pull-right hidden" data-mainsearchcriteria_v_c="2571-8" data-mainsearchcriteria_v_dn="Triglycerides, Serum or Plasma">
+            <em>i</em>
+          </div>
         </div>
         <div class="col-md-1">
         </div>
@@ -229,11 +231,25 @@
         </div>
       </div>
       <div class="row">
+        <div class="col-md-1">
+        </div>
         <div class="col-md-5">
-          <button class="btn btn-default pull-right" data-toggle="modal" data-target="#aboutModal">Review</button>
+          <strong>Stat Gram Stain</strong> +1 - click review for more details <span class="faded">Yesterday</span>
+          <div class="labbutton pull-right hidden" data-mainsearchcriteria_v_c="664-3" data-mainsearchcriteria_v_dn="Stat Gram Stain">
+            <em>i</em>
+          </div>
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5">
+        </div>
+      </div>      
+      <div class="row">
+        <div class="col-md-5">
+          <button class="btn btn-default pull-right topspacing" data-toggle="modal" data-target="#aboutModal">Review</button>
         </div>
         <div class="col-md-6">
-          <button class="btn btn-default pull-right">Modify</button>
+          <button class="btn btn-default pull-right topspacing" data-toggle="modal" data-target="#aboutModal">Modify</button>
         </div>
       </div>
     </div>
@@ -247,21 +263,54 @@
               <h4 class="modal-title" id="problemViewLabel"><%= mainsearchcriteria_v_dn %></h4>
             </div>
             <div class="modal-body">
+              <p class="lead">Patient Guidance</p>
               <%= feed[0].entry[0].summary.value[0] %>
-              <p>For more information go to:</p>
+              <p class="lead">For more clinically specific information go to:</p>
               <ul>
                 <%
                 _.each(feed, function(feedItem) {
                   _.each(feedItem.entry, function(entryItem) {
                     _.each(entryItem.link, function(linkItem) {
                       %>
-                      <li><a href='<%= linkItem.href %>' target="_blank"><%= entryItem.title.value[0] || linkItem.title || linkItem.href %> from <%= getHostname(linkItem.href) %></a></li>
-                      
+                      <li>
+                        <a href='<%= linkItem.href %>' target="_blank"><%= entryItem.title.value[0] || linkItem.title || linkItem.href %> from <%= getHostname(linkItem.href) %></a>
+                      </li>
                   <%});
                   });
                 });
                 %>
               </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="labViewTemplate">
+      <div class="modal fade" id="labViewModal" tabindex="-1" role="dialog" aria-labelledby="labViewLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="labViewLabel"><%= mainsearchcriteria_v_dn %></h4>
+            </div>
+            <div class="modal-body">
+              <p class="lead">For more information go to:<p>
+              <%
+              _.each(feed, function(feedItem) { %>
+                <p>Data source: <%= feedItem.title.value[0] %></p>
+                  <%
+                _.each(feedItem.entry, function(entryItem) {
+                  _.each(entryItem.link, function(linkItem) {
+                    %>
+                    <a href='<%= linkItem.href %>' target="_blank"><%= entryItem.title.value[0] || linkItem.title || linkItem.href %> from <%= getHostname(linkItem.href) %></a>
+                <%});
+                });
+              });
+              %>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -281,6 +330,8 @@
     <script src="external/backbone_1_2_3/backbone-min.js"></script>
     
     <!-- the custom javascript -->
+    <script src="js/models.js"></script>
+    <script src="js/views.js"></script>
     <script src="js/custom.js"></script>
   </body>
 </html>

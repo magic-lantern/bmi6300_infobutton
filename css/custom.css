@@ -4,7 +4,7 @@
 .dl-horizontal dd {
   margin-left: 120px;
 }
-.problembutton {
+.problembutton, .labbutton {
   font-family: Georgia, serif;
   font-size: 2rem;
   line-height: 1rem;
@@ -36,7 +36,7 @@ span {
 .topspacing {
   margin-top: 1rem;
 }
-dd > span, .col-md-5 > p > span {
+dd > span, .faded {
   color: #AAA;
   display: inline;
   margin-bottom: 0;
