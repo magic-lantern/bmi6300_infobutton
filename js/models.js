@@ -38,7 +38,8 @@ var infoButtonModel = Backbone.Model.extend({
   defaults: {
     'mainsearchcriteria_v_c' : '',   //toLower() and replace . with _ for easier use
     'mainsearchcriteria_v_dn' : '',   //toLower() and replace . with _ for easier use
-    'infobuttontype' : ''
+    'infobuttontype' : '',
+    'feed' : ''
   },
   validate: function(attributes){
     // add this later
@@ -58,11 +59,26 @@ var infoButtonModel = Backbone.Model.extend({
         break;
       case 'medication':
         break;
+      /*
       default:
-        console.log("Invalid or Unknown infobutton type, cannot retrieve data");
+        console.log("Invalid or Unknown infobutton type (value: '", this.attributes.infobuttontype, "'), cannot retrieve data");
+        */
     }
     return  urlbase + "&mainSearchCriteria.v.c=" + this.attributes.mainsearchcriteria_v_c + 
       "&mainSearchCriteria.v.dn=" + this.attributes.mainsearchcriteria_v_dn;
+  },
+  sync: function(method, model, options) {
+    //extend success function to check for non-empty server response
+    if (options.success) {
+      var orig_success = options.success;
+      options.success = function(response) {
+        if (jQuery.isEmptyObject(response))
+          options.error(response);
+        else
+          orig_success(response);
+      };
+    }    
+    return Backbone.sync(method, model, options);
   },
   parse: function(response) {
     // map server response to expected object attributes

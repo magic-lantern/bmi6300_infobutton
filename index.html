@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 
-    <title>Infobutton</title>
+    <title>Infobutton Example</title>
     
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -30,7 +30,7 @@
           <div class="modal-body">
             <p>Infobutton demonstration by Seth Russell</p>
             <p>All person related content in this sample application is fictious; no real personally identifiable information no personal health information has been used.</p>
-            <p>Results of info button links are provided by http://lite.bmi.utah.edu/InfobuttonQA.html</p>
+            <p>Results of infobutton links are provided by http://lite.bmi.utah.edu/InfobuttonQA.html</p>
             <p>Application is designed to be viewed on a screen resolution of 1280x1024 or larger.</p>
             <p>Source code available at <a href="https://github.com/magic-lantern/bmi6300_infobutton">https://github.com/magic-lantern/bmi6300_infobutton</a></p>
             <p>Copyright 2015 Seth Russell, Licensed under Apache License, Version 2.0. See above source code for full details.</p>
@@ -55,8 +55,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 border">
+          <div class="row zeroborder">
           <h3>Patient Information</h3>
-          <dl class="dl-horizontal">
+          <dl class="dl-horizontal zeroborder">
             <dt>Name</dt>
             <dd>Patrick Smith</dd>
             <dt>Age</dt>
@@ -66,8 +67,13 @@
             <dt>Address</dt>
             <dd>123 Place Lane, USA</dd>
           </dl>
+        </div>
+        <div class="row patientinfobutton">
+          <button class="btn btn-default pull-right" data-toggle="modal" data-target="#aboutModal">Modify</button>
+        </div>
+        <div class="row zeroborder">
           <p class="lead">Recent Vitals</p>
-          <dl class="dl-horizontal">
+          <dl class="dl-horizontal zeroborder">
             <dt>Weight</dt>
             <dd>81.64 kg <span>Today</span></dd>
             <dt>Blood Pressure</dt>
@@ -76,6 +82,7 @@
             <dd>85 bpm <span>Today</span></dd>
           </dl>
         </div>
+      </div>
         <div class="col-md-6 border">
           <h3>Reason for current visit</h3>
           <p>Followup for pneumonia.</p>
@@ -86,7 +93,7 @@
       </div>
       <div class="row">
         <div class="col-md-5 border">
-          <button class="btn btn-default pull-right" data-toggle="modal" data-target="#aboutModal">Modify</button>
+          <button class="btn btn-default pull-right" data-toggle="modal" data-target="#aboutModal">Review</button>
         </div>
         <div class="col-md-6 border">
           <button class="btn btn-default pull-right" data-toggle="modal" data-target="#aboutModal">Modify</button>
@@ -218,26 +225,30 @@
       <div class="row">
         <div class="col-md-1">
         </div>
-        <div class="col-md-5">
-          <strong>Triglycerides, Serum or Plasma</strong> 72 <span class="faded">Aug 12, 2015</span>
-          <div class="labbutton pull-right hidden" data-mainsearchcriteria_v_c="2571-8" data-mainsearchcriteria_v_dn="Triglycerides, Serum or Plasma">
-            <em>i</em>
-          </div>
+        <div class="col-md-5 bg-infolight-a">
+          <span>
+            <strong>Triglycerides, Serum or Plasma</strong> 72 <span class="faded">Aug 12, 2015</span>
+            <div class="labbutton pull-right hidden" data-mainsearchcriteria_v_c="2571-8" data-mainsearchcriteria_v_dn="Triglycerides, Serum or Plasma">
+              <em>i</em>
+            </div>
+          </span>
         </div>
         <div class="col-md-1">
         </div>
-        <div class="col-md-5">
+        <div class="col-md-5 bg-infolight-b">
           <p><strong>Penicillin</strong> Severe; anaphylactic reaction </p>
         </div>
       </div>
       <div class="row">
         <div class="col-md-1">
         </div>
-        <div class="col-md-5">
-          <strong>Stat Gram Stain</strong> +1 - click review for more details <span class="faded">Yesterday</span>
-          <div class="labbutton pull-right hidden" data-mainsearchcriteria_v_c="664-3" data-mainsearchcriteria_v_dn="Stat Gram Stain">
-            <em>i</em>
-          </div>
+        <div class="col-md-5 bg-infolight-b">
+          <span>
+            <strong>Stat Gram Stain</strong> +1 - click review for more details <span class="faded">Yesterday</span>
+            <div class="labbutton pull-right hidden" data-mainsearchcriteria_v_c="664-3" data-mainsearchcriteria_v_dn="Stat Gram Stain">
+              <em>i</em>
+            </div>
+          </span>
         </div>
         <div class="col-md-1">
         </div>
@@ -263,9 +274,11 @@
               <h4 class="modal-title" id="problemViewLabel"><%= mainsearchcriteria_v_dn %></h4>
             </div>
             <div class="modal-body">
+              <% if (feed[0].entry[0].summary == "undefined") { %>
               <p class="lead">Patient Guidance</p>
               <%= feed[0].entry[0].summary.value[0] %>
-              <p class="lead">For more clinically specific information go to:</p>
+              <% } %>
+              <p class="lead">Clinical Guidance:</p>
               <ul>
                 <%
                 _.each(feed, function(feedItem) {

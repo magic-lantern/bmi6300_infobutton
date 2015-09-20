@@ -20,13 +20,13 @@ $(".problembutton,.labbutton").each(function(index, element) {
     models[de].set("mainsearchcriteria_v_dn", $(element).data("mainsearchcriteria_v_dn"));
     models[de].fetch({
       success: function(model, response, options){
-        console.log("Retrieved infobutton information: ", response);
+        console.log("CODE ", de, " - Retrieved infobutton information. Response: ", response);
         $(element).removeClass('hidden');
         $('.alert-info').addClass('hidden')
       },
       error: function(model, response, options){
-        console.log("Could not retrieve infobutton information: " , response);
-        $('.alert-warning').removeClass('hidden')
+        console.log("CODE ", de, " - Could not retrieve infobutton information. Response: " , response);
+        $('.alert-warning').removeClass('hidden');
       }
     });
   }

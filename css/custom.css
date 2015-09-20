@@ -58,3 +58,13 @@ dd > span, .faded {
   margin-bottom: 0;
   dz-index: -1;
 }
+.patientinfobutton {
+  margin-right: 100px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.zeroborder {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+}
