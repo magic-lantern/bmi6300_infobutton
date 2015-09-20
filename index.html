@@ -314,15 +314,16 @@
               <p class="lead">For more information go to:<p>
               <%
               _.each(feed, function(feedItem) { %>
-                <p>Data source: <%= feedItem.title.value[0] %>
+                <p>Data source: <%= feedItem.title.value[0] %></p>
                   <%
                 _.each(feedItem.entry, function(entryItem) {
                   _.each(entryItem.link, function(linkItem) {
                     %>
-                    <a href='<%= linkItem.href %>' target="_blank"><%= entryItem.title.value[0] || linkItem.title || linkItem.href %> from <%= getHostname(linkItem.href) %></a></p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<a href='<%= linkItem.href %>' target="_blank"><%= entryItem.title.value[0] || linkItem.title || linkItem.href %> from <%= getHostname(linkItem.href) %></a>
                 <%});
-                });
-              });
+                }); %>
+                <p>&nbsp;</p> <%
+              }); 
               %>
             </div>
             <div class="modal-footer">
